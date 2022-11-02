@@ -1,45 +1,24 @@
 # Project UH-Drill
 
-### ローカル環境
-- docker 20.10.20
-- docker-compose 2.12.1
-- git 2.34.1
+### djangoインストールコマンド後
+- フォルダ所有権の変更
+- 静止ファイルの集約
+- サービス再起動
 
-### 作成する環境
-- Python 3.11.0
-- PostgreSQL 15
-- nginx 1.23.2
-- django 4.XX
-
-### 環境の構築
+### フォルダ所有権の変更
 ```
-$ git clone https://github.com/uhmfg-yuyasaito/uh-drill.git
+$ sudo chown -R YOUR_ACCOUNT_NAME:YOUR_ACCOUNT_NAME src/
 ```
 
-### コンテナの構築
-```
-$ docker-compose build
-```
-
-### コンテナの作成と立ち上げ
-```
-$ docker-compose up -d
-```
-
-### コンテナ起動確認(windowsのDockerから確認してもOK)
-```
-$ docker ps -a
-```
-
-### アプリのコンテナに接続
-```
-$ docker-compose exec app bash
-```
-
-### Djangoインストールコマンド
+### 静止ファイルの集約
 ```
 $ docker-compose exec django /bin/bash
-$ django-admin startproject uhdrill .
+$ ./manage.py collectstatic
+```
+
+### サービス再起動
+```
+$ docker-compose restart
 ```
 
 ### 参考サイト
