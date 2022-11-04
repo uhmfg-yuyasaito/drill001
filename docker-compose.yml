@@ -21,7 +21,7 @@ services:
       - '8080'
     volumes:
       - ./src:/code
-      - ./django/uwsgi:/etc/uwsgi/
+      - ./django/uwsgi:/etc/uwsgi
     depends_on:
       - db
 
